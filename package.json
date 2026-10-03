@@ -10,7 +10,7 @@
     "dev": "next dev --hostname 0.0.0.0 --port 3000",
     "build": "next build",
     "start": "next start --hostname 0.0.0.0 --port 3000",
-    "lint": "eslint app src",
+    "lint": "eslint app src tests",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"app/**/*.{ts,tsx,css}\" \"src/**/*.{ts,tsx}\" \"*.{json,js,mjs,ts}\" README.md",
