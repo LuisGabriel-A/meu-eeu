@@ -11,7 +11,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const { totalItems, setIsCartOpen } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const galleryActive = pathname === '/' || pathname.startsWith('/obras/');
+  const galleryActive =
+    pathname === '/' || pathname === '/obras' || pathname.startsWith('/obras/');
   const linkClass = (active: boolean) =>
     `py-1 text-xs font-medium uppercase tracking-[0.2em] transition-colors ${active ? 'border-b border-[#1A1A1A] text-[#1A1A1A]' : 'text-stone-600 hover:text-[#1A1A1A]'}`;
 

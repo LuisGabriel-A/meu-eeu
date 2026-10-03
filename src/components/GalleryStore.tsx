@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { Search, Sparkles, Filter, X, ArrowRight } from 'lucide-react';
 import { ARTWORKS } from '../data/artworks';
@@ -12,8 +12,10 @@ type CategoryId = ArtworkCategory | 'all' | 'encomendas';
 type SortOption = 'recommended' | 'price-asc' | 'price-desc' | 'name';
 
 export default function GalleryStore() {
+  const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const galleryPath = pathname === '/obras' ? '/obras' : '/';
   const categoryParam = searchParams.get('categoria');
   const selectedCategory: ArtworkCategory | 'all' =
     categoryParam === 'prints' || categoryParam === 'originais'
@@ -88,7 +90,9 @@ export default function GalleryStore() {
     if (catId === 'all') params.delete('categoria');
     else params.set('categoria', catId);
     const query = params.toString();
-    router.replace(query ? `/?${query}` : '/', { scroll: false });
+    router.replace(query ? `${galleryPath}?${query}` : galleryPath, {
+      scroll: false,
+    });
   };
 
   const resetFilters = () => {
