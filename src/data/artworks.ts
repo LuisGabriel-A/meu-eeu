@@ -22,7 +22,7 @@ export const ARTWORKS = [
     images: [
       'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1694634504060-048705af2f73?q=80&w=1000&auto=format&fit=crop',
     ],
     dimensionsInfo:
       'A6 (10,5 x 14,8 cm), A5 (14,8 x 21 cm), A4 (21 x 29,7 cm), A3 (29,7 x 42 cm)',
@@ -76,7 +76,7 @@ export const ARTWORKS = [
     fullDescription:
       'Pintura original e única, assinada à mão na frente e no verso pela artista Maria (@meu.eeu). Acompanha Certificado de Autenticidade numerado e carimbado. Feita com pigmentos resistentes à luz em papel inglês 100% algodão.',
     images: [
-      'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1694634504060-048705af2f73?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1000&auto=format&fit=crop',
     ],
     dimensionsInfo:
@@ -167,7 +167,7 @@ export const ARTWORKS = [
       'Tela montada em chassi de madeira nobre de 3,5cm de espessura com bordas pintadas em continuidade, pronta para pendurar (não necessita de moldura obrigatória, mas aceita moldura flutuante). Finalizada com verniz acetinado protetor contra raios UV e poeira.',
     images: [
       'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1694634504060-048705af2f73?q=80&w=1000&auto=format&fit=crop',
     ],
     dimensionsInfo: '60cm x 80cm em chassi reforçado de madeira.',
     materialInfo:
@@ -257,7 +257,7 @@ export const ARTWORKS = [
       'Trabalho original executado com a técnica wet-on-wet (molhado sobre molhado). Exibe as belas granulações de pigmentos minerais raros.',
     images: [
       'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1694634504060-048705af2f73?q=80&w=1000&auto=format&fit=crop',
     ],
     dimensionsInfo:
       'Folha 28cm x 38cm com bordas rústicas naturais de papel artesanal.',
@@ -526,7 +526,7 @@ export const INSTAGRAM_POSTS = [
   {
     id: 'ig-5',
     image:
-      'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=600&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1694634504060-048705af2f73?q=80&w=600&auto=format&fit=crop',
     title: 'Pintando ao ar livre (plein air)',
     likes: 955,
     comments: 63,
