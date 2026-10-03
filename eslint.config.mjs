@@ -1,14 +1,12 @@
+import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
-import nextVitals from 'eslint-config-next/core-web-vitals';
-import nextTypeScript from 'eslint-config-next/typescript';
+import reactHooks from 'eslint-plugin-react-hooks';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  ...nextVitals,
-  ...nextTypeScript,
-  {
-    files: ['app/layout.tsx'],
-    rules: { '@next/next/no-page-custom-font': 'off' },
-  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  reactHooks.configs.flat.recommended,
   globalIgnores([
     '.next/**',
     'out/**',
