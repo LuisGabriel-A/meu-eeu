@@ -1,5 +1,17 @@
-import React, { useState } from 'react';
-import { X, Trash2, Plus, Minus, ArrowRight, ShieldCheck, Sparkles, CheckCircle2, MessageSquare } from 'lucide-react';
+'use client';
+
+import { useState, type FormEvent } from 'react';
+import Image from 'next/image';
+import {
+  X,
+  Trash2,
+  Plus,
+  Minus,
+  ArrowRight,
+  ShieldCheck,
+  Sparkles,
+  MessageSquare,
+} from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function CartDrawer() {
@@ -10,25 +22,25 @@ export default function CartDrawer() {
     removeFromCart,
     updateQuantity,
     subtotal,
-    clearCart
   } = useCart();
 
   const [couponCode, setCouponCode] = useState('');
   const [discount, setDiscount] = useState(0);
   const [couponApplied, setCouponApplied] = useState(false);
-  const [isCheckingOut, setIsCheckingOut] = useState(false);
-  const [checkoutSuccess, setCheckoutSuccess] = useState(false);
 
   if (!isCartOpen) return null;
 
   const freeShippingThreshold = 250;
   const missingForFreeShipping = Math.max(0, freeShippingThreshold - subtotal);
-  const shippingPercent = Math.min(100, (subtotal / freeShippingThreshold) * 100);
+  const shippingPercent = Math.min(
+    100,
+    (subtotal / freeShippingThreshold) * 100,
+  );
 
-  const handleApplyCoupon = (e) => {
+  const handleApplyCoupon = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (couponCode.toUpperCase() === 'FINEART10') {
-      setDiscount(subtotal * 0.10);
+      setDiscount(subtotal * 0.1);
       setCouponApplied(true);
     } else {
       alert('Cupom inválido. Tente usar "FINEART10" para 10% de desconto.');
@@ -59,7 +71,6 @@ export default function CartDrawer() {
 
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/5551999999999?text=${encoded}`, '_blank');
-    setCheckoutSuccess(true);
   };
 
   return (
@@ -72,13 +83,17 @@ export default function CartDrawer() {
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
         <div className="w-screen max-w-md bg-[#FAF8F5] border-l border-[#E2DDD8] shadow-2xl flex flex-col justify-between">
-
           {/* Header */}
           <div className="p-6 border-b border-[#EAE6E1] flex items-center justify-between bg-white">
             <div>
-              <h2 className="font-serif text-2xl font-light text-[#1A1A1A]">Sua Sacola de Arte</h2>
+              <h2 className="font-serif text-2xl font-light text-[#1A1A1A]">
+                Sua Sacola de Arte
+              </h2>
               <p className="text-[11px] uppercase tracking-wider text-stone-600 mt-0.5">
-                {cartItems.length} {cartItems.length === 1 ? 'item selecionado' : 'itens selecionados'}
+                {cartItems.length}{' '}
+                {cartItems.length === 1
+                  ? 'item selecionado'
+                  : 'itens selecionados'}
               </p>
             </div>
             <button
@@ -93,7 +108,11 @@ export default function CartDrawer() {
           {/* Free shipping banner */}
           <div className="bg-[#F3EFEA] px-6 py-3 border-b border-[#EAE6E1]">
             <div className="flex items-center justify-between text-xs text-stone-700 font-medium mb-1.5">
-              <span>{missingForFreeShipping === 0 ? '✨ Você ganhou Frete Grátis!' : `Faltam R$ ${missingForFreeShipping.toFixed(2)} para Frete Grátis`}</span>
+              <span>
+                {missingForFreeShipping === 0
+                  ? '✨ Você ganhou Frete Grátis!'
+                  : `Faltam R$ ${missingForFreeShipping.toFixed(2)} para Frete Grátis`}
+              </span>
               <span>{shippingPercent.toFixed(0)}%</span>
             </div>
             <div className="w-full bg-stone-300 h-1.5 rounded-full overflow-hidden">
@@ -111,9 +130,12 @@ export default function CartDrawer() {
                 <div className="w-16 h-16 mx-auto rounded-full bg-[#F3EFEA] flex items-center justify-center text-stone-400">
                   <Sparkles size={28} />
                 </div>
-                <h3 className="font-serif text-xl text-stone-800 font-light">Sua sacola está vazia</h3>
+                <h3 className="font-serif text-xl text-stone-800 font-light">
+                  Sua sacola está vazia
+                </h3>
                 <p className="text-xs text-stone-500 max-w-xs mx-auto">
-                  Explore os prints fine art e pinturas originais na galeria e leve um pedaço de arte para o seu espaço.
+                  Explore os prints fine art e pinturas originais na galeria e
+                  leve um pedaço de arte para o seu espaço.
                 </p>
                 <button
                   onClick={() => setIsCartOpen(false)}
@@ -124,12 +146,17 @@ export default function CartDrawer() {
               </div>
             ) : (
               cartItems.map((item, index) => (
-                <div key={`${item.artworkId}-${item.sizeId}-${index}`} className="flex gap-4 pb-5 border-b border-[#EAE6E1] group">
-                  <div className="w-20 h-24 bg-[#EAE6E1] overflow-hidden flex-shrink-0 border border-stone-200">
-                    <img
+                <div
+                  key={`${item.artworkId}-${item.sizeId}-${index}`}
+                  className="flex gap-4 pb-5 border-b border-[#EAE6E1] group"
+                >
+                  <div className="relative h-24 w-20 flex-shrink-0 overflow-hidden border border-stone-200 bg-[#EAE6E1]">
+                    <Image
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="80px"
+                      className="object-cover"
                     />
                   </div>
 
@@ -213,13 +240,17 @@ export default function CartDrawer() {
               <div className="space-y-1.5 text-xs text-stone-600">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span className="font-medium text-stone-900">R$ {subtotal.toFixed(2)}</span>
+                  <span className="font-medium text-stone-900">
+                    R$ {subtotal.toFixed(2)}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Envio</span>
                   <span className="font-medium text-stone-900">
                     {missingForFreeShipping === 0 ? (
-                      <span className="text-emerald-700 font-bold uppercase tracking-wider text-[11px]">Grátis</span>
+                      <span className="text-emerald-700 font-bold uppercase tracking-wider text-[11px]">
+                        Grátis
+                      </span>
                     ) : (
                       'Calculado no checkout'
                     )}
@@ -227,7 +258,9 @@ export default function CartDrawer() {
                 </div>
                 <div className="flex justify-between pt-2 border-t border-stone-200 text-sm font-semibold text-stone-900">
                   <span className="font-serif text-base">Total Previsto</span>
-                  <span className="text-base text-[#1A1A1A]">R$ {finalTotal.toFixed(2)}</span>
+                  <span className="text-base text-[#1A1A1A]">
+                    R$ {finalTotal.toFixed(2)}
+                  </span>
                 </div>
               </div>
 
@@ -239,7 +272,10 @@ export default function CartDrawer() {
                 >
                   <MessageSquare size={16} />
                   <span>Finalizar via WhatsApp / Pix</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight
+                    size={14}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
                 </button>
 
                 <p className="text-[10px] text-center text-stone-600 flex items-center justify-center gap-1.5 pt-1">
@@ -249,7 +285,6 @@ export default function CartDrawer() {
               </div>
             </div>
           )}
-
         </div>
       </div>
     </div>

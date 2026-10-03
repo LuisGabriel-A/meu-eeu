@@ -1,6 +1,12 @@
-import React from 'react';
+interface InstagramIconProps {
+  size?: number;
+  className?: string;
+}
 
-export function InstagramIcon({ size = 18, className = "" }) {
+export function InstagramIcon({
+  size = 18,
+  className = '',
+}: InstagramIconProps) {
   return (
     <svg
       width={size}

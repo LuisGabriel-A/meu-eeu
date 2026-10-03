@@ -39,18 +39,21 @@ Criar uma experiência de navegação para um ateliê de arte: conhecer a artist
 
 ## Tecnologias
 
-| Tecnologia | Uso |
-| --- | --- |
-| React 19 | Componentes e interfaces |
-| JavaScript | Filtros, preços e interações |
-| Context API | Compartilhamento do estado do carrinho |
-| Tailwind CSS 3 | Estilos e adaptações de layout |
-| Vite 8 | Servidor de desenvolvimento e build |
-| Lucide React | Ícones |
+| Tecnologia     | Uso                                    |
+| -------------- | -------------------------------------- |
+| React 19       | Componentes e interfaces               |
+| TypeScript 5   | Tipos para obras, variantes e carrinho |
+| Context API    | Compartilhamento do estado do carrinho |
+| Tailwind CSS 3 | Estilos e adaptações de layout         |
+| Next.js 16     | Rotas, renderização e build            |
+| ESLint 9       | Regras de qualidade                    |
+| Prettier       | Formatação consistente                 |
+| Husky          | Verificação dos arquivos staged        |
+| Lucide React   | Ícones                                 |
 
 ## Executar no computador
 
-Requisitos: Node.js compatível com Vite 8 (`20.19+` na versão 20 ou `22.12+`) e npm. A verificação desta entrega utilizou Node.js `24.18.0`.
+Requisitos: Node.js 20.9 ou superior e npm. O arquivo `.nvmrc` indica Node.js 22.
 
 Na pasta do projeto:
 
@@ -59,7 +62,7 @@ npm.cmd ci
 npm.cmd run dev
 ```
 
-Abra o endereço mostrado no terminal; a porta configurada é `http://localhost:3000`. Se ela estiver ocupada, o Vite poderá escolher outra porta. Para encerrar, pressione `Ctrl+C`.
+Abra `http://localhost:3000`. Para encerrar, pressione `Ctrl+C`.
 
 Os comandos acima usam `npm.cmd` para funcionar também no PowerShell com restrições a scripts. Em outros terminais, use `npm`.
 
@@ -67,42 +70,56 @@ Os comandos acima usam `npm.cmd` para funcionar também no PowerShell com restri
 
 ```powershell
 npm.cmd run build
-npm.cmd run preview
+npm.cmd run start
 ```
 
-O build gera a pasta `dist/`. A prévia geralmente abre em `http://localhost:4173`; confira o endereço exibido. `node_modules/` e `dist/` são geradas localmente e estão fora do versionamento.
+O build de produção é iniciado pelo comando `start`, na porta 3000. `.next/`, `node_modules/` e `out/` são geradas localmente e estão fora do versionamento.
+
+### Verificações de código
+
+```powershell
+npm.cmd run lint
+npm.cmd run typecheck
+npm.cmd run format:check
+```
+
+O pre-commit do Husky executa ESLint e Prettier nos arquivos staged.
 
 ## Organização do código
 
 ```text
 meu-eeu-github/
+├── app/
+│   ├── encomendas/page.tsx
+│   ├── obras/[slug]/page.tsx
+│   ├── sobre/page.tsx
+│   ├── layout.tsx
+│   └── page.tsx
 ├── docs/
 │   ├── GUIA_GITHUB.md          # Publicação e atualizações do repositório
 │   └── PROGRESSO.md            # Entregas, limites e roteiro de demonstração
 ├── src/
 │   ├── components/            # Catálogo, obras, encomendas, carrinho e navegação
-│   ├── context/CartContext.jsx
-│   ├── data/artworks.js       # Obras, variantes, preços e conteúdo de exemplo
-│   ├── App.jsx                # Navegação entre as telas
-│   ├── index.css
-│   └── main.jsx
+│   ├── context/CartContext.tsx
+│   ├── data/artworks.ts       # Obras, variantes, preços e conteúdo de exemplo
+│   └── types.ts               # Tipos das obras e do carrinho
 ├── .gitignore
-├── .gitattributes
-├── index.html
+├── eslint.config.mjs
+├── next.config.ts
 ├── package.json
 ├── package-lock.json
 ├── postcss.config.js
 ├── tailwind.config.js
-└── vite.config.js
+└── tsconfig.json
 ```
 
 ## Como personalizar
 
-- **Obras e preços:** edite `src/data/artworks.js`.
-- **Contato pelo WhatsApp:** substitua `5551999999999` em `src/components/CartDrawer.jsx` e `src/components/CommissionsPage.jsx`, usando país, DDD e telefone, somente com números.
-- **Apresentação da artista:** edite `src/components/AboutPage.jsx`.
-- **Instagram e e-mail:** confira `Navbar.jsx`, `Footer.jsx` e `AboutPage.jsx`.
-- **Cores e fontes:** confira `tailwind.config.js`, `src/index.css` e `index.html`.
+- **Obras e preços:** edite `src/data/artworks.ts`.
+- **Contato pelo WhatsApp:** substitua `5551999999999` em `src/components/CartDrawer.tsx` e `src/components/CommissionsPage.tsx`, usando país, DDD e telefone, somente com números.
+- **Apresentação da artista:** edite `src/components/AboutPage.tsx`.
+- **Instagram e e-mail:** confira `Navbar.tsx`, `Footer.tsx` e `AboutPage.tsx`.
+- **Cores e fontes:** confira `tailwind.config.js` e `app/globals.css`.
 
 ## Estágio atual e próximos passos
 
@@ -137,7 +154,7 @@ Prioridades sugeridas para a evolução:
 
 **Texto-base para a seção Projetos do LinkedIn:**
 
-> Desenvolvimento de uma galeria digital e loja de arte com React, JavaScript e Tailwind CSS. O projeto conta com catálogo pesquisável, filtros por categoria e preço, seleção de variantes, carrinho persistente e interface para encomendas personalizadas. Em andamento, com foco na evolução da experiência de navegação e na validação dos fluxos de compra e atendimento.
+> Desenvolvimento de uma galeria digital e loja de arte com React, TypeScript, Next.js e Tailwind CSS. O projeto conta com catálogo pesquisável, páginas individuais para obras, filtros por categoria e preço, seleção de variantes, carrinho persistente e interface para encomendas personalizadas. Em andamento, com foco na evolução da experiência de navegação e na validação dos fluxos de compra e atendimento.
 
 ## Créditos e licença
 

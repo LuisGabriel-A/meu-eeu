@@ -2,6 +2,19 @@
 
 Este documento registra o que já existe e ajuda a demonstrar a evolução sem confundir um protótipo com uma loja em operação.
 
+## Migração de stack — 3 de outubro de 2026
+
+- Substituído Vite pelo Next.js App Router, com catálogo, obras, encomendas e apresentação em rotas próprias.
+- Convertidos os componentes e os dados da aplicação para TypeScript estrito.
+- Adicionados ESLint, Prettier, Husky, lint-staged e CI para lint, formatação, tipos e build.
+- Mantido o catálogo local e o carrinho no navegador; não foram adicionados backend ou pagamento.
+
+### Verificações da migração
+
+- `npm run lint`, `npm run typecheck` e `npm run format:check` concluídos sem erros.
+- `npm run build` gerou as páginas do catálogo, encomendas, apresentação e as oito páginas de obra.
+- Não foram enviados pedidos nem executados testes de pagamento.
+
 ## Entrega de organização — 1 de outubro de 2026
 
 - Código React existente reunido em uma pasta própria para versionamento.
@@ -29,15 +42,15 @@ O restante da lista manual abaixo continua pendente; não foram enviados pedidos
 
 ## Entregas presentes no código
 
-| Entrega | Evidência no código |
-| --- | --- |
-| Catálogo, busca, filtros e ordenação | `src/components/GalleryStore.jsx` |
-| Detalhes, variantes e preços das obras | `src/components/ProductDetail.jsx` |
-| Carrinho e persistência local | `src/context/CartContext.jsx` |
-| Interface de carrinho, cupom e mensagem de pedido | `src/components/CartDrawer.jsx` |
-| Configuração de encomendas em papel e tela | `src/components/CommissionsPage.jsx` |
-| Apresentação da artista | `src/components/AboutPage.jsx` |
-| Dados locais das obras e opções de encomenda | `src/data/artworks.js` |
+| Entrega                                           | Evidência no código                  |
+| ------------------------------------------------- | ------------------------------------ |
+| Catálogo, busca, filtros e ordenação              | `src/components/GalleryStore.tsx`    |
+| Detalhes, variantes e preços das obras            | `src/components/ProductDetail.tsx`   |
+| Carrinho e persistência local                     | `src/context/CartContext.tsx`        |
+| Interface de carrinho, cupom e mensagem de pedido | `src/components/CartDrawer.tsx`      |
+| Configuração de encomendas em papel e tela        | `src/components/CommissionsPage.tsx` |
+| Apresentação da artista                           | `src/components/AboutPage.tsx`       |
+| Dados locais das obras e opções de encomenda      | `src/data/artworks.ts`               |
 
 ## Roteiro para demonstrar o progresso
 
