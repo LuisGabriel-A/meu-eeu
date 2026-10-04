@@ -22,7 +22,7 @@ Esta é a opção mais simples para a primeira publicação.
 
 1. Na página do repositório vazio, clique no link **uploading an existing file**. Em um repositório com arquivos, use **Add file → Upload files**.
 2. Abra a pasta preparada no seu computador, ou extraia o ZIP entregue.
-3. Arraste o **conteúdo** da pasta para a área de envio: `src`, `docs`, `README.md`, `index.html`, os arquivos de configuração, `package.json`, `package-lock.json`, `.gitignore` e `.gitattributes`.
+3. Arraste o **conteúdo** da pasta para a área de envio: `app`, `src`, `docs`, `README.md`, os arquivos de configuração, `package.json`, `package-lock.json` e `.gitignore`.
 4. Confira se `README.md` e `package.json` aparecem na raiz e se os arquivos de código aparecem dentro de `src/`. Não envie uma pasta externa chamada `meu-eeu-github` envolvendo todo o projeto.
 5. Não arraste `.git/`, `node_modules/` ou `dist/` se elas estiverem na pasta. No upload pelo navegador, o `.gitignore` não filtra os arquivos que você seleciona.
 6. Na mensagem do commit, escreva `Adiciona base do site Meu.Eeu e documentação`.
@@ -102,20 +102,20 @@ Set-Location -LiteralPath 'meu-eeu-trabalho'
 ## 3. Completar a apresentação do projeto
 
 - Em **About**, use a descrição curta do README.
-- Como tópicos, use `react`, `javascript`, `tailwindcss`, `vite`, `art-gallery` e `frontend`.
+- Como tópicos, use `react`, `typescript`, `nextjs`, `tailwindcss`, `art-gallery` e `frontend`.
 - Quando houver uma demonstração publicada, adicione o endereço em **Website** e no README.
 - Acrescente capturas de tela e atualize `docs/PROGRESSO.md` a cada entrega relevante.
 - No LinkedIn, vincule o repositório ao projeto e mantenha o status **em desenvolvimento** enquanto as etapas previstas estiverem em andamento.
 
 ## Dificuldades comuns
 
-| Situação | Como resolver |
-| --- | --- |
-| `npm.ps1` bloqueado pelo PowerShell | Use `npm.cmd ci` e `npm.cmd run dev`, como no README. |
-| `Author identity unknown` | Configure `user.name` e `user.email` com os comandos acima. |
-| `remote origin already exists` | Confira `git remote -v`; ajuste com `git remote set-url origin URL_CORRETA` se necessário. |
+| Situação                                            | Como resolver                                                                                                                      |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `npm.ps1` bloqueado pelo PowerShell                 | Use `npm.cmd ci` e `npm.cmd run dev`, como no README.                                                                              |
+| `Author identity unknown`                           | Configure `user.name` e `user.email` com os comandos acima.                                                                        |
+| `remote origin already exists`                      | Confira `git remote -v`; ajuste com `git remote set-url origin URL_CORRETA` se necessário.                                         |
 | Envio rejeitado porque já existem commits no GitHub | Se usou upload no navegador ou criou um README remoto, clone o repositório em outra pasta e copie suas alterações para essa cópia. |
-| Não há site no endereço do repositório | O repositório guarda o código. A hospedagem da aplicação é uma etapa separada. |
+| Não há site no endereço do repositório              | O repositório guarda o código. A hospedagem da aplicação é uma etapa separada.                                                     |
 
 ## Referências oficiais
 

@@ -1,20 +1,23 @@
-import React from 'react';
-import { Mail, Heart, Sparkles } from 'lucide-react';
+'use client';
+
+import Link from 'next/link';
+import { Mail } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 
-export default function Footer({ onNavigate }) {
+export default function Footer() {
   return (
     <footer className="bg-[#FAF8F5] border-t border-[#EAE6E1] text-stone-600 text-xs font-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-
           {/* Col 1: Brand & Statement */}
           <div className="space-y-3 md:col-span-1">
             <span className="font-serif text-2xl text-stone-900 font-light tracking-wide block">
               meu.eeu
             </span>
             <p className="text-[11px] text-stone-500 leading-relaxed max-w-xs">
-              Ateliê de Fine Art por Maria. Pinturas originais em aquarela e acrílica e reproduções de alto padrão para trazer serenidade ao seu lar.
+              Ateliê de Fine Art por Maria. Pinturas originais em aquarela e
+              acrílica e reproduções de alto padrão para trazer serenidade ao
+              seu lar.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -43,29 +46,41 @@ export default function Footer({ onNavigate }) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => onNavigate('store', 'all')} className="hover:text-black transition-colors">
+                <Link href="/" className="hover:text-black transition-colors">
                   Galeria Completa
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => onNavigate('store', 'prints')} className="hover:text-black transition-colors">
+                <Link
+                  href="/?categoria=prints"
+                  className="hover:text-black transition-colors"
+                >
                   Prints Fine Art (A6 a A3)
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => onNavigate('store', 'originais')} className="hover:text-black transition-colors">
+                <Link
+                  href="/?categoria=originais"
+                  className="hover:text-black transition-colors"
+                >
                   Obras Originais
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => onNavigate('commissions')} className="hover:text-black transition-colors">
+                <Link
+                  href="/encomendas"
+                  className="hover:text-black transition-colors"
+                >
                   Encomendas Personalizadas
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => onNavigate('about')} className="hover:text-black transition-colors">
+                <Link
+                  href="/sobre"
+                  className="hover:text-black transition-colors"
+                >
                   Sobre a Artista & FAQ
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -90,9 +105,16 @@ export default function Footer({ onNavigate }) {
               Novidades do Ateliê
             </h4>
             <p className="text-[11px] text-stone-500 leading-relaxed">
-              Receba avisos exclusivos sobre lançamentos de séries originais e aberturas de agenda de encomendas.
+              Receba avisos exclusivos sobre lançamentos de séries originais e
+              aberturas de agenda de encomendas.
             </p>
-            <form onSubmit={(e) => { e.preventDefault(); alert('Obrigado por assinar as novidades do ateliê!'); }} className="space-y-2">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert('Obrigado por assinar as novidades do ateliê!');
+              }}
+              className="space-y-2"
+            >
               <input
                 type="email"
                 required
@@ -107,13 +129,13 @@ export default function Footer({ onNavigate }) {
               </button>
             </form>
           </div>
-
         </div>
 
         {/* Bottom copyright line */}
         <div className="pt-8 border-t border-[#EAE6E1] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-stone-400">
           <span>
-            © {new Date().getFullYear()} meu.eeu — Maria Fine Art. Todos os direitos reservados.
+            © {new Date().getFullYear()} meu.eeu — Maria Fine Art. Todos os
+            direitos reservados.
           </span>
           <span className="flex items-center gap-1">
             Feito com afeto para apreciadores de arte & aquarelas.

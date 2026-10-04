@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -45,7 +42,7 @@ export default {
         rosewood: {
           400: '#C4859A',
           500: '#AC687F',
-        }
+        },
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
@@ -54,8 +51,8 @@ export default {
       },
       boxShadow: {
         'fine-art': '0 10px 30px -10px rgba(20, 20, 19, 0.08)',
-        'gallery': '0 20px 40px -15px rgba(20, 20, 19, 0.12)',
-        'frame': '0 4px 20px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04)',
+        gallery: '0 20px 40px -15px rgba(20, 20, 19, 0.12)',
+        frame: '0 4px 20px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04)',
       },
       animation: {
         'fade-in': 'fadeIn 0.4s ease-out forwards',
@@ -70,8 +67,8 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-      }
+      },
     },
   },
   plugins: [],
-}
+};
